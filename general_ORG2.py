@@ -126,7 +126,7 @@ with webdriver.Chrome(options=options) as driver:
             element_present = EC.presence_of_element_located((By.CLASS_NAME, 'products__info-block'))
             WebDriverWait(driver, 15).until(element_present)
             soup = BeautifulSoup(driver.page_source, 'html.parser')
-            cards_url = ['https://www.santech.ru' + x.find('a').get('href') for x in soup.find_all('div', class_='products__info-block')]
+            cards_url = ['https://www.ORG2.ru' + x.find('a').get('href') for x in soup.find_all('div', class_='products__info-block')]
             print('try', cards_url, 'собранные таблички11111')
             total_cards.append(cards_url)
             pause(2)
@@ -139,7 +139,7 @@ with webdriver.Chrome(options=options) as driver:
 
             soup = BeautifulSoup(driver.page_source, 'html.parser')
             pause(2)
-            cards_url = ['https://www.santech.ru' + x.find('a').get('href') for x in soup.find_all('div', class_='products__info-block')]
+            cards_url = ['https://www.ORG2.ru' + x.find('a').get('href') for x in soup.find_all('div', class_='products__info-block')]
             print('except', cards_url, 'собранные таблички')
             total_cards.append(cards_url)
             pause(2)
@@ -280,7 +280,7 @@ for product in products:
     column_names.extend(list(set(product) - set(column_names)))
 
 
-to_excel(products, column_names, file_name='Видное')
+to_excel(products, column_names, file_name='ORG2')
 print('ФАЙЛ ЗАПИСАН')
 print('-------------------------------------------------')
 print('Обработка закончена:   ', str(datetime.now() - start_time).split('.')[0])
