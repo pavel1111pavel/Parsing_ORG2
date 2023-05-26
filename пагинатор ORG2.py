@@ -5,7 +5,7 @@ from datetime import datetime
 import requests
 
 start_time = datetime.now()
-url='https://www.santech.ru/catalog/'
+url='https://www.ORG2/catalog/'
 
 async def get_page_data():
     catalogical_url = []
@@ -13,7 +13,7 @@ async def get_page_data():
     total_pages = []
     for i in range(200, 600):
 
-        url_test = f'https://www.santech.ru/catalog/{i}'
+        url_test = f'https://www.ORG2/catalog/{i}'
         response = requests.get(url_test)
         try:
             assert response.status_code == 200
